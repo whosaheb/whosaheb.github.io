@@ -8,3 +8,21 @@ h2{
 p{
     text-align: center;
 }
+.header-section{
+    background: url(/static-files/images/header.jpg) center center / 2560px 200px no-repeat !important;
+    content: "" !important;
+    /* height: 100% !important; */
+    left: 0px !important;
+    opacity: 0.4 !important;
+    position: absolute !important;
+    top: 0px !important;
+    width: 100% !important;
+    z-index: -1 !important;
+}
+header{
+    background: rgb(0, 0, 0) !important;
+    border-bottom: 1px solid rgb(17, 17, 17) !important;
+    position: relative !important;
+    height: 160px !important;
+    z-index: 1 !important;
+}
