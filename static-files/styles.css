@@ -1,18 +1,28 @@
 body {
-    background-color: lightblue;
+    font-family: Consolas, monaco, monospace;
 }
 
+.home-page {
+    background-image: url('./images/index-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    height: 100vh;
+}
 h2{
     text-align: center;
+    color: aliceblue;
 }
 p{
     text-align: center;
+    color: aliceblue;
 }
-.header-section{
+/* .header-section{
     background: url(/static-files/images/header.jpg) center center / 2560px 200px no-repeat !important;
-    content: "" !important;
+    content: "" !important; */
     /* height: 100% !important; */
-    left: 0px !important;
+    /* left: 0px !important;
     opacity: 0.4 !important;
     position: absolute !important;
     top: 0px !important;
@@ -25,4 +35,4 @@ header{
     position: relative !important;
     height: 160px !important;
     z-index: 1 !important;
-}
+} */
