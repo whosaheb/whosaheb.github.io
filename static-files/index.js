@@ -1,58 +1,75 @@
-/*****************************************Auto typing start here **************** */
-// List of sentences
-var _CONTENT = [ "I'm Saheb Das", "Web app Developer", "Mostly develope RestAPI (Node App)"];
+//******************* add jquery and bootstrap.min.js ************/
+var jQueryScript = document.createElement('script');
+jQueryScript.src = 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js';
+jQueryScript.integrity = 'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj';
+jQueryScript.crossOrigin = 'anonymous' 
+document.getElementById('jsLoader').appendChild(jQueryScript);
 
-// Current sentence being processed
-var _PART = 0;
+var btStrpScript = document.createElement('script');
+btStrpScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js';
+btStrpScript.integrity = 'sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF';
+btStrpScript.crossOrigin = 'anonymous' 
+document.getElementById('jsLoader').appendChild(btStrpScript);
 
-// Character number of the current sentence being processed 
-var _PART_INDEX = 0;
+//// /////////////////////////    Common header and footer object ///////////////////////////
+const headerFooter = {
+    header: 
+    `<nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand 	d-sm-none d-block" href="#">WHOSAHEB</a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav px-4 py-sm-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">01&nbsp;:&nbsp;Home</a>
+                    <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/works.html">02&nbsp;:&nbsp; Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">03&nbsp;:&nbsp;About me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">04&nbsp;:&nbsp;Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>`,
 
-// Holds the handle returned from setInterval
-var _INTERVAL_VAL;
-
-// Element that holds the text
-var _ELEMENT = document.querySelector("#text");
-
-// Implements typing effect
-function Type() { 
-	var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
-	_ELEMENT.innerHTML = text;
-	_PART_INDEX++;
-
-	// If full sentence has been displayed then start to delete the sentence after some time
-	if(text === _CONTENT[_PART]) {
-		clearInterval(_INTERVAL_VAL);
-		setTimeout(function() {
-			_INTERVAL_VAL = setInterval(Delete, 50);
-		}, 1000);
-	}
+    footer: 
+    `<div class="text-center text-light p-4">
+        whosaheb &copy; <span class="current-year"></span>
+    </div>`
 }
 
-// Implements deleting effect
-function Delete() {
-	var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
-	_ELEMENT.innerHTML = text;
-	_PART_INDEX--;
+/// add common header to the page
+let pageNav = document.getElementsByTagName('header')[0]
+if( pageNav ) pageNav.innerHTML = headerFooter.header;
 
-	// If sentence has been deleted then start to display the next sentence
-	if(text === '') {
-		clearInterval(_INTERVAL_VAL);
+/// add coomon footer to the page
+let pageFooter = document.getElementsByTagName('footer')[0]
+if(pageFooter) pageFooter.innerHTML = headerFooter.footer;
 
-		// If last sentence then display the first one, else move to the next
-		if(_PART == (_CONTENT.length - 1))
-			_PART = 0;
-		else
-			_PART++;
-		_PART_INDEX = 0;
+/// add active link to the menu link
+var activeurl = window.location.pathname;
+var els = document.querySelector("a[href='"+activeurl+"']");
+els.classList.add('active')
+// console.log(els.innerHTML)
 
-		// Start to display the next sentence after some time
-		setTimeout(function() {
-			_INTERVAL_VAL = setInterval(Type, 100);
-		}, 200);
-	}
+window.onload = function() {
+    $(".current-year").html(new Date().getFullYear());
+
+    // var activeurl = window.location.pathname;
+    // (activeurl == '/' ? $('a[href="/"]').addClass('active') : $('a[href="'+activeurl+'"]').addClass('active'))
+    // $('a[href="'+activeurl+'"]').addClass('active');
+
+    // var pagePathName= window.location.pathname;
+    // let page = pagePathName.substring(pagePathName.lastIndexOf("/") + 1);
+
+    // console.log('fh',activeurl);
+    // var text = $('a').attr('href');
+    // alert(text);
 }
-
-// Start the typing effect on load
-_INTERVAL_VAL = setInterval(Type, 100);
-/*****************************************Auto typing end here **************** */
