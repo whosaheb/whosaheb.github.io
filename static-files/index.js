@@ -30,10 +30,10 @@ const headerFooter = {
                     <a class="nav-link" href="/works.html">02&nbsp;:&nbsp; Works</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">03&nbsp;:&nbsp;About me</a>
+                    <a class="nav-link" href="/about.html">03&nbsp;:&nbsp;About me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">04&nbsp;:&nbsp;Contact</a>
+                    <a class="nav-link" href="/contact.html">04&nbsp;:&nbsp;Contact</a>
                 </li>
             </ul>
         </div>
@@ -60,6 +60,7 @@ els.classList.add('active')
 // console.log(els.innerHTML)
 
 window.onload = function() {
+    //j query works only under the page only
     $(".current-year").html(new Date().getFullYear());
 
     // var activeurl = window.location.pathname;
