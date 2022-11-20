@@ -27,7 +27,7 @@ const headerFooter = {
                     <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/works.html">02&nbsp;:&nbsp; Works</a>
+                    <a class="nav-link" href="/works.html">02&nbsp;:&nbsp;Works</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about.html">03&nbsp;:&nbsp;About me</a>
