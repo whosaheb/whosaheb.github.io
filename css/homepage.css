@@ -1,0 +1,205 @@
+.homepage-logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-top: 130px;
+}
+
+.homepage-container {
+    padding-top: 25px;
+}
+
+.homepage-first-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homepage-first-area-left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.homepage-title {
+    width: 85% !important;
+}
+
+.homepage-subtitle {
+    width: 85% !important;
+}
+
+.homepage-first-area-right-side {
+    display: flex;
+    align-items: center;
+}
+
+.homepage-image-container {
+    width: 370px;
+    height: 370px;
+}
+
+.homepage-image-wrapper {
+    overflow: hidden;
+    border-radius: 10%;
+    transform: rotate(3deg);
+}
+
+.homepage-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.homepage-socials {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.homepage-social-icon {
+    padding-right: 20px;
+    font-size: 25px;
+    transition: color 0.2s ease-in-out;
+    color: var(--secondary-color);
+}
+
+.homepage-social-icon:hover {
+    color: var(--primary-color);
+}
+
+.homepage-after-title {
+    display: flex;
+}
+
+.view-all-link{
+    color: #001ce6;
+    font-weight: 900;
+    text-decoration: auto;
+}
+
+/* Projects Section */
+.homepage-projects {
+    flex-basis: 300px;
+    padding-top: 40px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+/* Articles Section */
+.homepage-articles {
+    flex-basis: 900px;
+    padding-top: 30px;
+}
+
+.article-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.article-card:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.article-date {
+    color: var(--tertiary-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.article-title {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-summary {
+    color: var(--secondary-color);
+}
+
+/* Works Section */
+.homepage-works {
+    flex-basis: 600px;
+    padding-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .homepage-first-area {
+        flex-direction: column;
+    }
+
+    .homepage-first-area-left-side {
+        width: 100%;
+        order: 2;
+    }
+
+    .homepage-title,
+    .homepage-subtitle {
+        width: 100% !important;
+    }
+
+    .homepage-first-area-right-side {
+        width: 100%;
+        order: 1;
+    }
+
+    .homepage-image-container {
+        padding: 50px 0;
+        margin-left: 10px;
+    }
+
+    .homepage-after-title {
+        flex-direction: column;
+    }
+
+    .homepage-projects,
+    .homepage-articles,
+    .homepage-works {
+        flex-basis: auto;
+    }
+
+    .homepage-works {
+        margin: 0 -25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .homepage-image-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .homepage-socials {
+        justify-content: center;
+    }
+}

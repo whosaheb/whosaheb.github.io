@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="whosaheb">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>whosaheb</title>
-    <link rel="icon" type="image/x-icon" href="/static-files/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="static-files/styles.css">
+    <title>WHOSAHEB</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -19,10 +16,10 @@
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PK3CKTB');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-PK3CKTB');
+    </script>
     <!-- End Google Tag Manager -->
 </head>
-
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK3CKTB" height="0" width="0"
@@ -37,21 +34,62 @@
         gtag('config', 'G-QBH7MNMQ9L');
     </script>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="home-page">
-        <header class="container-fluit"></header>
-        <div class="body">
-            <h2>WHOSAHEB</h2>
+    <div class="page-content">
+        <nav class="nav-container">
+            <!-- Header/Navigation section will be loaded dynamically via javascript-->
+        </nav>
 
-            <p>Welcome to my personal blog</p>
-            <div style="padding: 25vh 0">
-                <h2 id="text"></h2>
+        <div class="content-wrapper">
+            <div class="homepage-logo-container">
+                <div class="logo-wrapper">
+                    <img src="assets/programmer-img.png" alt="Logo" width="120">
+                </div>
+            </div>
+
+            <div class="homepage-container">
+                <div class="homepage-first-area">
+                    <div class="homepage-first-area-left-side" id="homepage-intro-area">
+                        <!-- Homepage intro section will be loaded dynamically via JavaScript --> 
+                    </div>
+                    <div class="homepage-first-area-right-side">
+                        <div class="homepage-image-container">
+                            <div class="homepage-image-wrapper">
+                                <img src="assets/homepage.png" alt="about" class="homepage-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homepage-socials">
+                    <a data-social="x"><i class="fab fa-twitter homepage-social-icon"></i></a>
+                    <a data-social="github"><i class="fab fa-github homepage-social-icon"></i></a>
+                    <a data-social="linkedin"><i class="fab fa-linkedin homepage-social-icon"></i></a>
+                    <a data-social="email"><i class="fas fa-envelope homepage-social-icon"></i></a>
+                </div>
+
+                <div class="homepage-projects" id="projects-container">
+                    <!-- Projects will be loaded dynamically via JavaScript -->
+                </div>
+
+                <div class="homepage-after-title">
+                    <div class="homepage-articles" id="articles-container">
+                        <!-- Articles will be loaded dynamically via JavaScript -->
+                    </div>
+
+                    <div class="homepage-works">
+                        <!-- Works section will be loaded dynamically via JavaScript -->
+                    </div>
+                </div>
+
+                <footer class="page-footer">
+                    <!-- Footer section will be loaded dynamically via javascript-->
+                </footer>
             </div>
         </div>
     </div>
-    <div id="jsLoader">
-        <script src="./static-files/index.js"></script>
-        <script src="./static-files/autoTyping.js"></script>
-    </div>
-</body>
 
+    <script src="js/index.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/home.js"></script>
+</body>
 </html>
