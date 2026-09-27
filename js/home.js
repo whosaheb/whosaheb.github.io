@@ -90,7 +90,7 @@ function loadArticles() {
 
     const articlesData = (typeof INFO !== 'undefined' && Array.isArray(INFO.articles_content)) ? INFO.articles_content : [];
     if (articlesData.length === 0) {
-        projectsContainer.innerHTML = '<div class="no-articles">No articles available.</div>';
+        articlesContainer.innerHTML = '<div class="no-articles">No articles available.</div>';
         return;
     }
 

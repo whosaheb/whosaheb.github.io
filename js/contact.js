@@ -20,8 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reset form
             contactForm.reset();
             
-            // Show success message (you can enhance this)
-            alert('Integrated barta chat app on successful form submission.');
+            // Show success message (in-page feedback avoiding iframe alert issues)
+            let alertBox = document.getElementById('form-feedback');
+            if (!alertBox) {
+                alertBox = document.createElement('div');
+                alertBox.id = 'form-feedback';
+                alertBox.style.padding = '12px 16px';
+                alertBox.style.marginBottom = '20px';
+                alertBox.style.borderRadius = '8px';
+                alertBox.style.backgroundColor = '#ecfdf5';
+                alertBox.style.color = '#065f46';
+                alertBox.style.border = '1px solid #a7f3d0';
+                alertBox.style.fontSize = '15px';
+                contactForm.parentNode.insertBefore(alertBox, contactForm);
+            }
+            alertBox.textContent = 'Thank you! Your message has been received.';
         });
     }
 });
