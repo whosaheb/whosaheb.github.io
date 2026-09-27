@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: './', // Relative base URL ensures perfect compatibility with GitHub Pages
+  base: 'whosaheb.github.io', // Relative base URL ensures perfect compatibility with GitHub Pages
   server: {
     host: '0.0.0.0',
     port: 3000,
