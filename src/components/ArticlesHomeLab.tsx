@@ -15,13 +15,18 @@ import {
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export const ArticlesHomeLab: React.FC = () => {
-  const { data } = usePortfolioData();
+  const { data, activePage } = usePortfolioData();
   const { articles, homeLab } = data;
   const [activeArticleModal, setActiveArticleModal] = useState<boolean>(false);
   const article = articles[0];
 
   return (
-    <section id="articles" className="py-14 sm:py-20 bg-white dark:bg-[#0c101a] border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section
+      id="articles"
+      className={`py-10 sm:py-16 bg-white dark:bg-[#0c101a] ${
+        activePage === 'home' ? 'border-t border-slate-200 dark:border-slate-800/80' : ''
+      } transition-colors duration-200`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

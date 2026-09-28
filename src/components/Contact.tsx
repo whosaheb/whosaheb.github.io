@@ -13,7 +13,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from './SocialIcons';
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export const Contact: React.FC = () => {
-  const { data } = usePortfolioData();
+  const { data, activePage } = usePortfolioData();
   const { personal } = data;
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,7 +65,12 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-20 bg-slate-50 dark:bg-slate-950/90 border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section
+      id="contact"
+      className={`py-10 sm:py-16 bg-slate-50 dark:bg-slate-950/90 ${
+        activePage === 'contact' ? '' : 'border-t border-slate-200 dark:border-slate-800/80'
+      } transition-colors duration-200`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}

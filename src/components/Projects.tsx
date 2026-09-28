@@ -12,7 +12,7 @@ import {
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export const Projects: React.FC = () => {
-  const { data } = usePortfolioData();
+  const { data, activePage } = usePortfolioData();
   const { projects } = data;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -46,7 +46,12 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-14 sm:py-20 bg-slate-50 dark:bg-slate-950/70 border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section
+      id="projects"
+      className={`py-10 sm:py-16 bg-slate-50 dark:bg-slate-950/70 ${
+        activePage === 'home' ? 'border-t border-slate-200 dark:border-slate-800/80' : ''
+      } transition-colors duration-200`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

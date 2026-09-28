@@ -28,29 +28,27 @@ const PortfolioContent: React.FC = () => {
         {activePage === 'about' ? (
           <AboutPage onOpenResume={() => setIsResumeOpen(true)} />
         ) : activePage === 'projects' ? (
-          <div className="pt-6">
+          <>
             <Projects />
             <Contact />
-          </div>
+          </>
         ) : activePage === 'experience' ? (
-          <div className="pt-6">
+          <>
             <Experience />
             <Contact />
-          </div>
+          </>
         ) : activePage === 'architecture' ? (
-          <div className="pt-6">
+          <>
             <ArchitectureSkills />
             <Contact />
-          </div>
+          </>
         ) : activePage === 'articles' ? (
-          <div className="pt-6">
+          <>
             <ArticlesHomeLab />
             <Contact />
-          </div>
+          </>
         ) : activePage === 'contact' ? (
-          <div className="pt-6">
-            <Contact />
-          </div>
+          <Contact />
         ) : (
           /* Default: Complete Full Portfolio Experience */
           <>

@@ -3,7 +3,7 @@ import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronDown, ChevronUp, Buil
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export const Experience: React.FC = () => {
-  const { data } = usePortfolioData();
+  const { data, activePage } = usePortfolioData();
   const { workExperience, personal } = data;
   const [expandedId, setExpandedId] = useState<string | null>(workExperience[0]?.id || null);
 
@@ -12,7 +12,12 @@ export const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="py-14 sm:py-20 bg-white dark:bg-[#0c101a] border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section
+      id="experience"
+      className={`py-10 sm:py-16 bg-white dark:bg-[#0c101a] ${
+        activePage === 'home' ? 'border-t border-slate-200 dark:border-slate-800/80' : ''
+      } transition-colors duration-200`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

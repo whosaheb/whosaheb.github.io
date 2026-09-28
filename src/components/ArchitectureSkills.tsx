@@ -12,7 +12,7 @@ import {
 import { usePortfolioData } from '../context/PortfolioDataContext';
 
 export const ArchitectureSkills: React.FC = () => {
-  const { data } = usePortfolioData();
+  const { data, activePage } = usePortfolioData();
   const { technicalExpertise, techBadges } = data;
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
@@ -27,7 +27,12 @@ export const ArchitectureSkills: React.FC = () => {
   ];
 
   return (
-    <section id="architecture" className="py-14 sm:py-20 bg-slate-50 dark:bg-[#0a0d14] border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <section
+      id="architecture"
+      className={`py-10 sm:py-16 bg-slate-50 dark:bg-[#0a0d14] ${
+        activePage === 'home' ? 'border-t border-slate-200 dark:border-slate-800/80' : ''
+      } transition-colors duration-200`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
