@@ -5,6 +5,7 @@ import {
   MapPin,
   Send,
   Check,
+  X,
   Copy,
   MessageSquare
 } from 'lucide-react';
@@ -19,17 +20,36 @@ export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const gleFormData = new URLSearchParams();
+
+    gleFormData.append('entry.798528265', formData.name);
+    gleFormData.append('entry.1369087187', formData.email);
+    gleFormData.append('entry.829283960', formData.subject);
+    gleFormData.append('entry.874851939', formData.message);
+
+    try {
+      await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSdqUeKRpWIHYAhQBSH1-F0hKdlvLOXuDlyJWbakSC74x3BtPA/formResponse',
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          body: gleFormData,
+        }
+      );
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => setSubmitted(false), 5000);
-    }, 600);
+    }
   };
 
   const copyEmail = () => {
@@ -47,7 +67,7 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-14 sm:py-20 bg-slate-50 dark:bg-slate-950/90 border-t border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-left mb-12">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-2">
@@ -63,10 +83,10 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
+
           {/* Left Column: Direct Contact Details & Links */}
           <div className="lg:col-span-5 space-y-6 text-left">
-            
+
             {/* Contact Information Card */}
             <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-7 shadow-xs">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-5">
@@ -197,13 +217,25 @@ export const Contact: React.FC = () => {
               </div>
 
               {submitted ? (
-                <div className="p-6 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-center animate-in fade-in">
-                  <Check className="h-8 w-8 mx-auto mb-2 text-emerald-600 dark:text-emerald-400" />
-                  <h4 className="text-base font-bold mb-1">Message Received!</h4>
-                  <p className="text-xs leading-relaxed max-w-md mx-auto text-emerald-700 dark:text-emerald-400">
-                    Thank you for reaching out. Saheb will respond to your query at {formData.email || 'your email'} shortly.
-                  </p>
-                </div>
+                submitError ? (
+                  <div className="p-6 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-300 text-center">
+                    <X className="h-8 w-8 mx-auto mb-2 text-red-600 dark:text-red-400" />
+                    <h4 className="text-base font-bold mb-1">
+                      Failed to send your message.
+                    </h4>
+                    <p className="text-xs leading-relaxed max-w-md mx-auto text-red-700 dark:text-red-400">
+                      Something went wrong while submitting your message. Please check your details and try again. If the problem persists, you can contact me directly by email.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="p-6 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-center animate-in fade-in">
+                    <Check className="h-8 w-8 mx-auto mb-2 text-emerald-600 dark:text-emerald-400" />
+                    <h4 className="text-base font-bold mb-1">Message submitted successfully.</h4>
+                    <p className="text-xs leading-relaxed max-w-md mx-auto text-emerald-700 dark:text-emerald-400">
+                      Thank you for reaching out! Your message has been received. I will review your query and get back to you at {formData.email || 'your email'} as soon as possible.
+                    </p>
+                  </div>
+                )
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
